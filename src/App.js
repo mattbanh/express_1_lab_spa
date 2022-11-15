@@ -8,7 +8,7 @@ function App() {
   const [ingPic, setIngPic] = useState("");
   const [apiResponse, setApiResponse] = useState("");
   const [value, setValue] = useState("");
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
 
   const formValidation = (formValue) => {
     if (!formValue) {
@@ -57,10 +57,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Ingredient Checker App</h1>
-      <form onSubmit={submitHandler}>
-        <label htmlFor="ingredient">Check your ingredient</label>
+      <h1 className="App__title">Ingredient Checker App</h1>
+      <form className="form" onSubmit={submitHandler}>
+        <label className="form__label" htmlFor="ingredient">
+          Check your ingredient
+        </label>
         <input
+          className="form__input"
           onChange={inputChangeHandler}
           value={value}
           type="text"
@@ -68,12 +71,32 @@ function App() {
           name="ingredient"
           placeholder="Enter an ingredient"
         ></input>
-        <button type="submit">Submit</button>
+        <button className="form__button" type="submit">
+          Submit
+        </button>
       </form>
       {apiResponse && (
         <>
-          <span className="ingredient__response">{apiResponse}</span>
-          <img className="ingredient__img" src={ingPic} alt={ingredient}></img>
+          {apiResponse.includes("not") ? (
+            <>
+              <span className="ingredient__response--not">{apiResponse}</span>
+              <img
+                className="ingredient__img--not"
+                src={ingPic}
+                alt={ingredient}
+              ></img>
+            </>
+          ) : (
+            <>
+              <span className="ingredient__response">{apiResponse}</span>
+
+              <img
+                className="ingredient__img"
+                src={ingPic}
+                alt={ingredient}
+              ></img>
+            </>
+          )}
         </>
       )}
     </div>

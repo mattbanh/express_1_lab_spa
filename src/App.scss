@@ -1,13 +1,79 @@
+// f06543
+// e8e9eb
+// e0dfd5
+// 313638
+// f09d51
+
+@import url("https://fonts.googleapis.com/css?family=Sono");
+html,
+body {
+  margin: 0;
+  font-family: "Sono";
+  box-sizing: border-box;
+  background-color: #f09d51;
+}
+
 .App {
+  margin-top: 15vh;
   text-align: center;
+  &__title {
+    font-size: 3rem;
+    color: #e8e9eb;
+    margin-bottom: 7vh;
+  }
+}
+
+.form {
+  &__label {
+    color: #313638;
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  &__input {
+    text-align: center;
+    font-family: "Sono";
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    border: 1px solid #313638;
+    background-color: #e8e9eb;
+    color: #313638;
+    margin-right: 1rem;
+    &:focus {
+      outline: 2px solid #f09d51;
+    }
+  }
+  &__button {
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    background-color: #f06543;
+
+    color: #e8e9eb;
+    font-family: "Sono";
+  }
 }
 
 .ingredient {
   &__response {
-    margin: 2rem 0;
+    margin-top: 7vh;
+    margin-bottom: 1vh;
     display: block;
+    color: green;
+    &--not {
+      @extend .ingredient__response;
+      color: red;
+    }
   }
   &__img {
-    width: 30rem;
+    width: 25vh;
+    height: 25vh;
+    object-fit: cover;
+    border-radius: 30px;
+    border: 3px solid green;
+    &--not {
+      @extend .ingredient__img;
+      filter: grayscale(100%);
+      border: 3px solid red;
+    }
   }
 }
