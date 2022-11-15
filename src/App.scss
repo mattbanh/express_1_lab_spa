@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.ingredient {
+  &__response {
+    margin: 2rem 0;
+    display: block;
+  }
+  &__img {
+    width: 30rem;
+  }
+}
